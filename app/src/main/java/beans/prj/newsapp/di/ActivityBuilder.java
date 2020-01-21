@@ -1,5 +1,6 @@
 package beans.prj.newsapp.di;
 
+import beans.prj.newsapp.ui.home.HomeActivity;
 import beans.prj.newsapp.ui.splash.SplashActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -9,5 +10,8 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector
     abstract SplashActivity bindSplashActivity();
+
+    @ContributesAndroidInjector(modules = { NewsFragBuilder.class })
+    abstract HomeActivity bindHomeActivity();
 
 }
