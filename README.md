@@ -1,4 +1,4 @@
-##### Commit Type with Emoji
+#### Commit Type with Emoji
 * :star: Function
 * :exclamation: Bug
 * :hammer: Refactoring
