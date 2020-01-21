@@ -22,8 +22,8 @@ public class AppModule {
 
     @Singleton
     @Provides
-    ViewModelProviderFactory provideViewModelProviderFactory() {
-        return new ViewModelProviderFactory();
+    ViewModelProviderFactory provideViewModelProviderFactory(AppRepository repository) {
+        return new ViewModelProviderFactory(repository);
     }
 
     @Singleton
