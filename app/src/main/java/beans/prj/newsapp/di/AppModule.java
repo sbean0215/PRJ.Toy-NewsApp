@@ -28,8 +28,8 @@ public class AppModule {
 
     @Singleton
     @Provides
-    Retrofit provideReprofit(){
-        return RetrofitClient.getRetrofitInstance();
+    Retrofit provideReprofit(Context context){
+        return RetrofitClient.getRetrofitInstance(context);
     }
 
     @Singleton
