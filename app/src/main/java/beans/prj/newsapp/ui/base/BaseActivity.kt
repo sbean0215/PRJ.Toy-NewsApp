@@ -10,18 +10,7 @@ import dagger.android.support.DaggerAppCompatActivity
 
 abstract class BaseActivity<DB : ViewDataBinding?> : DaggerAppCompatActivity() {
 
-    protected var binding: DB? = null
-    abstract val layoutId: Int
-
-    abstract fun initViewOnCreat()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(layoutId)
-        binding = DataBindingUtil.setContentView<DB>(this, layoutId)
-        initViewOnCreat()
-        binding?.executePendingBindings()
-    }
+    abstract var binding: DB
 
     protected fun setToolbar(toolbar: Toolbar?) {
         setSupportActionBar(toolbar)

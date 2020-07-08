@@ -10,44 +10,13 @@ import androidx.databinding.ViewDataBinding
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseFragment<DB : ViewDataBinding?, VM : BaseViewModel?> : DaggerFragment() {
+abstract class BaseFragment<DB : ViewDataBinding, VM : BaseViewModel> : DaggerFragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProviderFactory
+    abstract var viewModelFactory: ViewModelProviderFactory
 
-    protected var activity: BaseActivity<*>? = null
-    protected var binding: DB? = null
+    abstract var binding: DB
+    abstract var sharedViewModel: VM
+    abstract var fragmentTitle: String?
 
-    abstract fun initViews()
-    abstract val fragLayoutId: Int
 
-    protected var sharedViewModel: VM? = null
-    abstract fun initSharedViewModel(): VM
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is BaseActivity<*>) {
-            this.activity = context
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate<DB>(inflater, fragLayoutId, container, false)
-        return binding?.getRoot()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        sharedViewModel = initSharedViewModel()
-        initViews()
-    }
-
-    override fun onDetach() {
-        activity = null
-        super.onDetach()
-    }
 }
