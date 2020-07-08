@@ -1,10 +1,8 @@
 package beans.prj.newsapp.ui.base
 
 import android.R
-import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import dagger.android.support.DaggerAppCompatActivity
 

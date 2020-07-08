@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import beans.prj.newsapp.R
-import beans.prj.newsapp.databinding.ActivityHomeBinding
 import beans.prj.newsapp.databinding.ActivitySplashBinding
 import beans.prj.newsapp.ui.base.BaseActivity
 import beans.prj.newsapp.ui.home.HomeActivity
