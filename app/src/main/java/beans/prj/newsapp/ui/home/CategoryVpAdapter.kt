@@ -7,8 +7,17 @@ import beans.prj.newsapp.etc.Categories
 import beans.prj.newsapp.ui.base.BaseFragment
 import java.util.*
 
-class CategoryVpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    private val fragments: ArrayList<BaseFragment<*, *>>
+class CategoryVpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
+    private val fragments: ArrayList<BaseFragment<*, *>> = ArrayList()
+
+    init {
+        for (category in Categories.values()) {
+            fragments.add(NewsListFragment.newInstance(category.title))
+        }
+    }
+
+
     override fun getItem(position: Int): Fragment {
         return fragments[position]
     }
@@ -21,10 +30,4 @@ class CategoryVpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         return Categories.values()[position].title
     }
 
-    init {
-        fragments = ArrayList()
-        for (category in Categories.values()) {
-            fragments.add(NewsListFragment.Companion.newInstance(category.title))
-        }
-    }
 }
