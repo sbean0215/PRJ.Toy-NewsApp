@@ -1,0 +1,32 @@
+package beans.prj.newsapp.di
+
+import android.content.Context
+import beans.prj.newsapp.MockNewsApplication
+import beans.prj.newsapp.data.AppRepository
+import beans.prj.newsapp.ui.base.ViewModelProviderFactory
+import dagger.Module
+import dagger.Provides
+import retrofit2.Retrofit
+import javax.inject.Singleton
+
+@Module
+class MockAppModule {
+    @Singleton
+    @Provides
+    fun provideContext(application: MockNewsApplication): Context {
+        return application
+    }
+
+    @Singleton
+    @Provides
+    fun provideViewModelProviderFactory(repository: AppRepository?): ViewModelProviderFactory {
+        return ViewModelProviderFactory(repository)
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideAppRepository(retrofit: Retrofit?): AppRepository {
+        return AppRepository(retrofit!!)
+    }
+}
