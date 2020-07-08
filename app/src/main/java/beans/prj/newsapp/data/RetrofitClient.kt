@@ -17,7 +17,12 @@ object RetrofitClient {
     private var retrofit: Retrofit? = null
     @JvmStatic
     fun getRetrofitInstance(context: Context): Retrofit? {
-        val logging = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message -> Log.d("BEAN", "OkHttp$message") })
+        val logging = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
+            override fun log(message: String) {
+                Log.d("BEAN", "OkHttp$message")
+            }
+        })
+//        val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BASIC
         val okhttpClient = OkHttpClient.Builder()
                 .addNetworkInterceptor(RequestInterceptor(context))
