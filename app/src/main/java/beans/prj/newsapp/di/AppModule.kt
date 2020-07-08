@@ -26,12 +26,6 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideReprofit(context: Context?): Retrofit? {
-        return getRetrofitInstance(context!!)
-    }
-
-    @Singleton
-    @Provides
     fun provideAppRepository(retrofit: Retrofit?): AppRepository {
         return AppRepository(retrofit!!)
     }
