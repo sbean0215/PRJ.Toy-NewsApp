@@ -7,8 +7,14 @@ import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidSupportInjectionModule::class, AppModule::class, ActivityBuilder::class])
-interface AppComponent : AndroidInjector<NewsApplication?> {
-    @Component.Builder
-    abstract class Builder : AndroidInjector.Builder<NewsApplication?>()
+@Component(modules = [
+    AndroidSupportInjectionModule::class,
+    AppModule::class,
+    ActivityBuilder::class,
+    FragmentBuilder::class]
+)
+interface AppComponent : AndroidInjector<NewsApplication> {
+
+    @Component.Factory
+    abstract class Factory : AndroidInjector.Factory<NewsApplication>
 }

@@ -7,9 +7,10 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class ActivityBuilder {
-    @ContributesAndroidInjector
-    abstract fun bindSplashActivity(): SplashActivity?
 
-    @ContributesAndroidInjector(modules = [NewsFragBuilder::class])
-    abstract fun bindHomeActivity(): HomeActivity?
+    @ContributesAndroidInjector
+    abstract fun bindSplashActivity(): SplashActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindHomeActivity(): HomeActivity
 }
