@@ -7,7 +7,7 @@ import beans.prj.newsapp.etc.Categories
 import beans.prj.newsapp.ui.base.BaseFragment
 import java.util.*
 
-class CategoryVpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class HomeFragmentsVpAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     private val fragments: ArrayList<BaseFragment<*, *>> = ArrayList()
 

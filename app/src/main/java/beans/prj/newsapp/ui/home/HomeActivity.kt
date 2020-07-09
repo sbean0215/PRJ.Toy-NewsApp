@@ -21,7 +21,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
         binding.apply {
-            vpCategory.adapter = CategoryVpAdapter(supportFragmentManager)
+            vpCategory.adapter = HomeFragmentsVpAdapter(supportFragmentManager)
             tabLayoutCategories.setupWithViewPager(vpCategory)
 
             executePendingBindings()
